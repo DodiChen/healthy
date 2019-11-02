@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: user
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      default: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 5
+
